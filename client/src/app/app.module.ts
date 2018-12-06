@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { environment } from '../environments/environment'
+
 
 @NgModule({
   declarations: [
@@ -10,7 +14,14 @@ import { AppRoutingModule } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: environment.TOASTER_TIMEOUT,
+      preventDuplicates: environment.PREVENT_DUPLICATES
+    }),
+
+
   ],
   providers: [
     // LoginService

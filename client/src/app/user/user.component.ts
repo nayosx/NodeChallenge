@@ -11,29 +11,33 @@ import { UserService } from '../services/user.service';
 export class UserComponent implements OnInit {
     loadingIndicator: Boolean = true;
     reorderable: Boolean = true;
-    private rows = [
-        { name: 'Austin', gender: 'Male', company: 'Swimlane' },
-        { name: 'Dany', gender: 'Male', company: 'KFC' },
-        { name: 'Molly', gender: 'Female', company: 'Burger King' },
-    ];
-    private columns = [
-        { prop: 'name' },
-        { name: 'Gender' },
-        { name: 'Company' }
-    ];
+    private rows: Array<any>;
     constructor(private userService: UserService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.get();
+    }
 
-    getUsers() {
-        this.userService.getUsers().subscribe(
+    get() {
+        this.userService.get().subscribe(
             data => {
-
+                this.rows = data;
+                this.rows = [...this.rows];
             },
             error => {
 
             },
             () => {
+
+            }
+        );
+    }
+    delete(id) {
+        this.userService.delete(id).subscribe(
+            data => {
+                this.get();
+            },
+            error => {
 
             }
         );
