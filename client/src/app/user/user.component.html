@@ -1,1 +1,29 @@
-<h1>Hello</h1>
+<div class="container">
+    <div class="col-md-12 mt-5">
+        <div class="card">
+            <div class="card-header card-header-custom">
+                <div class=row>
+                    <div class="col-md-3">
+                        <h2>Users</h2>
+                    </div>
+                    <div class="col-md-9 text-right">
+                        <button class="btn btn-success">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New User
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ngx-datatable class="material" [rows]="rows" [columns]="columns" [columnMode]="'force'"
+                            [headerHeight]="50" [footerHeight]="50"
+                            [rowHeight]="'auto'"
+                            [reorderable]="reorderable">
+                        </ngx-datatable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
