@@ -12,8 +12,12 @@ const routes: Routes = [
         loadChildren: './favorites/favorites.module#FavoritesModule'
     },
     {
+        path: 'music',
+        loadChildren: './music/music.module#MusicModule'
+    },
+    {
         path: '',
-        redirectTo: '',
+        redirectTo: 'music',
         pathMatch: 'full'
     }
 ];
