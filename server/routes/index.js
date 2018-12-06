@@ -1,5 +1,9 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const router = express.Router();
+const path = require("path");
 
-app.use(express.static(__dirname + '../public'));
-module.exports = app;
+router.get('/', (req, res, next) => {
+    res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+});
+
+module.exports = router;

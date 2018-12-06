@@ -12,10 +12,6 @@ var indexRoute = require('./routes/index');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/success', (req, res) => res.send("You have successfully logged in"));
-app.get('/error', (req, res) => res.send("error logging in"));
-
-
 passport.serializeUser( (user, cb) => {
     cb(null, user);
 });
@@ -41,10 +37,10 @@ app.get('/auth/github', passport.authenticate(SOCIAL_NETWORK));
 app.get('/auth/github/callback', 
     passport.authenticate(SOCIAL_NETWORK, { failureRedirect: '/error' }),
     (req, res) => {
-        console.log(req.user);
+        //console.log(req.user);
         //res.send(JSON.stringify(req.user, null, '\t'));
-        res.send(req.user);
-        //res.redirect('/success');
+        //res.send(req.user);
+        res.redirect('/success');
     }
 );
 
@@ -52,6 +48,7 @@ app.get('/auth/github/callback',
 app.use('/', authRoute);
 app.use('/', indexRoute);
 app.use(express.static(__dirname + '/public'));
+app.use('/sucess',express.static(__dirname + '/public/welcome.html'));
 app.listen(3000);
 
 module.exports = app;

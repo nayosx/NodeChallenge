@@ -1,10 +1,14 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const path = require("path");
 
+router.get('/success', (req, res) => {
+        res.sendFile('welcome.html', { root: path.join(__dirname, '../public') });
+    }
+);
+router.get('/error', (req, res) => {
+        res.sendFile('error.html', { root: path.join(__dirname, '../public') });
+    }
+);
 
-/* GET users listing. */
-router.get('/auth/github', function(req, res, next) {
-    res.send('aca se manejara la respuesta de github');
-});
-  
 module.exports = router;
