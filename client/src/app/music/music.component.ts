@@ -24,9 +24,9 @@ export class MusicComponent implements OnInit {
     getMusic() {
         this._music.getMusiFromiTunes().subscribe(
             data => {
-                this.data = data;
+                this.data = data.feed.entry;
                 this.data = [...this.data];
-                console.log(data);
+                console.log(this.data);
             },
             error => {
                 console.log(error);

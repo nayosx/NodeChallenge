@@ -1,1 +1,17 @@
-<h1>Hola mundo musica</h1>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of data">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+                <p>
+                    <img class="img img-responsive" src="{{item['im:image'][2]['label']}}"/>
+                </p>
+                <p>
+                    <strong>Canción: </strong> {{item['im:name']['label']}}
+                </p>
+                <p>
+                    <strong>Artista: </strong> {{item['im:artist']['label']}}
+                </p>
+            </div>
+        </ng-container>
+    </div>
+</div>
