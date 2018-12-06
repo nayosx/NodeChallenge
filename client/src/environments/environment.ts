@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   SERVER_ERROR_MSG: 'Error en servidor',
   TOASTER_TIMEOUT: 10000,
-  PREVENT_DUPLICATES: true
+  PREVENT_DUPLICATES: true,
+  USER_URL: 'http://localhost:3000/user'
 };
 
 /*

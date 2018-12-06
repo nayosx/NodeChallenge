@@ -1,33 +1,33 @@
 {
-    "user": [
-        {
-            "id": 0,
-            "node_id": "MDQ6VXNlcjE1NjM0OTM=",
-            "name": "Adonai Gonzalez",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/1563493?v=4",
-            "html_url": "https://nayosx.blogspot.com",
-            "location": "El Salvador",
-            "email": "admin@mail.com",
-            "bio": "Lorem ipsum",
-            "public_repos": "0"
-        }
-    ],
-    "favorites": [
-        {
-            "id": 0,
-            "userId": 0,
-            "albumId": 0,
-            "name": "Default",
-            "img": "default",
-            "link": "https://nayosx.blogspot.com"
-        }
-    ],
-    "bought": [
-        {
-            "id": 0,
-            "albumId": 0,
-            "userId": 0,
-            "dateBuyed": "1989-06-05"
-        }
-    ]
+  "user": [
+    {
+      "id": 0,
+      "node_id": "MDQ6VXNlcjE1NjM0OTM=",
+      "name": "Adonai Gonzalez",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1563493?v=4",
+      "html_url": "https://nayosx.blogspot.com",
+      "location": "El Salvador",
+      "email": "admin@mail.com",
+      "bio": "Lorem ipsum",
+      "public_repos": "0"
+    }
+  ],
+  "favorites": [
+    {
+      "id": 0,
+      "userId": 0,
+      "albumId": 0,
+      "name": "Default",
+      "img": "default",
+      "link": "https://nayosx.blogspot.com"
+    }
+  ],
+  "bought": [
+    {
+      "id": 0,
+      "albumId": 0,
+      "userId": 0,
+      "dateBuyed": "1989-06-05"
+    }
+  ]
 }
