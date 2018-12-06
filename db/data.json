@@ -12,10 +12,11 @@
             "public_repos": "0"
         }
     ],
-    "album": [
+    "favorites": [
         {
             "id": 0,
             "userId": 0,
+            "albumId": 0,
             "name": "Default",
             "img": "default",
             "link": "https://nayosx.blogspot.com"
