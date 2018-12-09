@@ -15,7 +15,7 @@ import { FormsModule } from "@angular/forms";
     CommonModule,
     MusicRoutingModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class MusicModule { }

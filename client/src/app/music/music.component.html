@@ -23,6 +23,56 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div class="container-fluid bg-black">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 pt-3 pb-3">
+            <div class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fa fa-search h4 text-body"></i>
+                    </div>
+                    <div class="col">
+                        <input 
+                            class="form-control form-control-borderless" 
+                            type="search" 
+                            placeholder="Busca tu cancion favorita"
+                            [(ngModel)]="searchAlbum"
+                            autofocus
+                        />
+                    </div>
+                    <div class="col-auto">
+                        
+
+                        <div class="btn-group mr-3">
+                            <button type="button" class="btn btn-primary">Split me</button>
+                            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                                <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+                                <div class="dropdown-menu" ngbDropdownMenu>
+                                <button class="dropdown-item">One</button>
+                                <button class="dropdown-item">Two</button>
+                                <button class="dropdown-item">Four!</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <div class="container mt-3">
     <div class="row">
         <div class="col-12">
