@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class MusicService {
   constructor(private http: HttpClient) { }
 
-  getMusiFromiTunes() { 
+  getMusicFromiTunes() { 
     return this.http.get<any>(environment.ITUNE)
     .pipe(
       map(

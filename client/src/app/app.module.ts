@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { FormsModule } from "@angular/forms";
+//import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // FormsModule,
+    //FormsModule,
     NgbModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: environment.TOASTER_TIMEOUT,

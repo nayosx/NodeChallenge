@@ -1,7 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 $black-rat: #1b2228;
 $black-rat-white: #58656b;
-body{
+body {
     background-color: $black-rat !important;
+    color: $black-rat-white !important;
+    font-size: 0.8em;
+}
+hr {
+    // background: $black-rat-white !important;
+}
+
+.modal-body, .modal-header {
+    background-color: #1b2228;
+}
+.modal-header {
+    border-bottom: 1px solid $black-rat !important;
+}
+.ngx-pagination a, .ngx-pagination button{
     color: $black-rat-white !important;
 }

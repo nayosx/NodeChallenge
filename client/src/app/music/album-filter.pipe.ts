@@ -4,12 +4,11 @@ import { PipeTransform, Pipe } from "@angular/core";
     name: 'albumFilter'
 })
 export class AlbumFilterPipe implements PipeTransform {
-    transform(topAlbums: any, searchTerm: string): any {
-        if (!topAlbums || !searchTerm) {
-            return topAlbums;
+    transform(albums: any, searchAlbum: string): any {
+        if (!albums || !searchAlbum) {
+            return albums;
         }
 
-        return topAlbums.filter(album => 
-            album['im:artist'].label.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+        return albums.filter(album => album['im:name'].label.toLowerCase().indexOf(searchAlbum.toLowerCase()) !== -1);
     }
 }
