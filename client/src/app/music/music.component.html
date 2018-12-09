@@ -77,34 +77,40 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-4">
-            <div class="">
-                <label for="">Ordenar por titulo: </label>
-                <select (change)="orderByNameOnChange($event)" [value]="0" class="form-control" >
-                    <option value="0">Por defecto</option>
-                    <option value="1">A-Z</option>
-                    <option value="2">Z-A</option>
-                </select>
+            <div class="form-group row">
+                <label for="" class="col-sm-6 col-form-label">Ordenar por titulo: </label>
+                <div class="col-sm-6">
+                    <select (change)="orderByNameOnChange($event)" [value]="0" class="form-control" >
+                        <option value="0">Por defecto</option>
+                        <option value="1">A-Z</option>
+                        <option value="2">Z-A</option>
+                    </select>
+                </div>
             </div>
         </div>
 
         <div class="col-4">
-            <div class="">
-                <label for="">Ordenar por genero: </label>
-                <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
-                    <option value="0">Por defecto</option>
-                    <option value="1">A-Z</option>
-                    <option value="2">Z-A</option>
-                </select>
+            <div class="form-group row">
+                <label for="" class="col-sm-6 col-form-label">Ordenar por genero: </label>
+                <div class="col-sm-6">
+                    <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
+                        <option value="0">Por defecto</option>
+                        <option value="1">A-Z</option>
+                        <option value="2">Z-A</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="col-4">
-            <div class="">
-                <label for="">Ordenar por artista: </label>
-                <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
-                    <option value="0">Por defecto</option>
-                    <option value="1">A-Z</option>
-                    <option value="2">Z-A</option>
-                </select>
+            <div class="form-group row">
+                <label for="" class="col-sm-6 col-form-label">Ordenar por artista: </label>
+                <div class="col-sm-6">
+                    <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
+                        <option value="0">Por defecto</option>
+                        <option value="1">A-Z</option>
+                        <option value="2">Z-A</option>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
@@ -113,25 +119,26 @@
     <div class="row">
         <!--<ng-container *ngFor="let album of albums | albumsFilter:searchAlbum:searchByNameAlbumGenderArtis | albumFilter: searchAlbum | paginate: { itemsPerPage: 8, currentPage: p }">-->
         <ng-container *ngFor="let album of albums | albumFilter: searchAlbum | paginate: { itemsPerPage: 8, currentPage: p }">
-            <!--<ng-container *ngFor="let album of albums">-->
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-5 pb-3">
-                <p class="text-center">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-3 pb-3">
+                <div class="album-container text-center mb-2">
+                    <div class="album-info">
+                        <div class="btn-group btn-group-center" role="group">
+                            <button class="btn btn-secondary" (click)="seeMore(modal,album)" data-toggle="tooltip" data-placement="top" title="Informacion detallada"><i class="fa fa-info-circle" aria-hidden="true"></i></button> 
+                            <button class="btn btn-secondary bg-rat" (click)="seeMore(modal,album)" data-toggle="tooltip" data-placement="top" title="Agregar a favoritos"><i class="fa fa-star-o" aria-hidden="true"></i></button>
+                            <a class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Compartir en twitter" target="_blank" 
+                            href="https://twitter.com/home?status={{encodeText('Estoy escuchando: ')}}{{album['im:name']['label']}}{{encodeText(' de ')}}{{album['im:artist']['label']}}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
                     <img class="img img-responsive img-rounded" src="{{album['im:image'][2]['label']}}" />
-                </p>
+                </div>
                 <p class="text-truncate"><!--titulo-->
                     <strong><i class="fa fa-file-audio-o" aria-hidden="true"></i> Titulo: </strong> {{album['im:name']['label']}}
-                </p>
-                <p><!--Artista-->
-                    <strong><i class="fa fa-user-o" aria-hidden="true"></i> Artista: </strong> {{album['im:artist']['label']}}
                 </p>
                 <p><!--Genero-->
                     <strong><i class="fa fa-tag" aria-hidden="true"></i> Genero: </strong> {{ album.category.attributes.label }}
                 </p>
-                <p>
-                    <strong><i class="fa fa-star-o" aria-hidden="true"></i>: </strong> Agregar a favoritos
-                </p>
-                <p>
-                    <button class="btn btn-sm btn-secondary btn-block" (click)="seeMore(modal,album)">Ver mas detalles</button>
+                <p><!--Artista-->
+                    <strong><i class="fa fa-user-o" aria-hidden="true"></i> Artista: </strong> {{album['im:artist']['label']}}
                 </p>
             </div>
         </ng-container>

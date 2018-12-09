@@ -18,3 +18,25 @@ $black-rat-white: #58656b;
     outline: none;
     box-shadow: none;
 }
+
+.album-container {
+    position: relative;
+    .album-info{
+        position: absolute;
+        bottom: 7px;
+        right: 0;
+        left: 0;
+        // display: none
+    }
+}
+.album-container:hover {
+    /*background-color: aqua;
+    .album-info {
+        display: block;
+    }*/
+}
+
+.btn-group {
+    box-shadow: #000 1px 1px 7px;
+    border-radius: 7px;
+}

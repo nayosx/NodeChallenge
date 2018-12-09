@@ -34,7 +34,7 @@ export class MusicComponent implements OnInit {
         this.getMusic();
     }
 
-    getMusic() {
+    public getMusic() {
         this._music.getMusicFromiTunes().subscribe(
             data => {
                 this.albums = data.feed.entry;
@@ -159,5 +159,9 @@ export class MusicComponent implements OnInit {
         );
 
         this.albums = [...this.albums];
+    }
+
+    public encodeText(stg) {
+        return encodeURI(stg);
     }
 }

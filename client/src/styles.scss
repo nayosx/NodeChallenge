@@ -9,6 +9,9 @@ body {
 hr {
     // background: $black-rat-white !important;
 }
+p{
+    margin-bottom: 0.3em !important;
+}
 
 .modal-body, .modal-header {
     background-color: #1b2228;
@@ -18,4 +21,15 @@ hr {
 }
 .ngx-pagination a, .ngx-pagination button{
     color: $black-rat-white !important;
+}
+/*.btn-group-center {
+    margin: auto;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+}*/
+
+.bg-rat {
+    background-color: $black-rat-white !important;
+    border: 1px $black-rat-white;
 }
