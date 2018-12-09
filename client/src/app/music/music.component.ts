@@ -4,6 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+const ORDER_BY_NAME = 0;
+const ORDER_BY_GEN = 1;
+const ORDER_BY_ART = 2;
+
 @Component({
     selector: 'music-root',
     templateUrl: 'music.component.html',
@@ -57,10 +61,10 @@ export class MusicComponent implements OnInit {
         let option = parseInt(fromSelect.target.value);
         switch(option) {
             case 1:
-                this._atoz();
+                this._atoz(ORDER_BY_NAME);
             break;
             case 2:
-                this._ztoa();
+                this._ztoa(ORDER_BY_NAME);
             break;
             default:
                 this.albums = [...this.defaultAlbums];
@@ -68,10 +72,55 @@ export class MusicComponent implements OnInit {
         }
     }
 
-    private _atoz() {
+    public orderByGenOnChange(fromSelect) {
+        let option = parseInt(fromSelect.target.value);
+        switch(option) {
+            case 1:
+                this._atoz(ORDER_BY_GEN);
+            break;
+            case 2:
+                this._ztoa(ORDER_BY_GEN);
+            break;
+            default:
+                this.albums = [...this.defaultAlbums];
+            break;
+        }
+    }
+
+    public orderByArtOnChange(fromSelect) {
+        let option = parseInt(fromSelect.target.value);
+        switch(option) {
+            case 1:
+                this._atoz(ORDER_BY_ART);
+            break;
+            case 2:
+                this._ztoa(ORDER_BY_ART);
+            break;
+            default:
+                this.albums = [...this.defaultAlbums];
+            break;
+        }
+    }
+
+    private _atoz(orderBy) {
         this.albums.sort(
             (a, b) => {
-                var nameA=a['im:name']['label'].toLowerCase(), nameB=b['im:name']['label'].toLowerCase();
+                var nameA = null, nameB = null;
+                switch(orderBy) {
+                    case ORDER_BY_NAME:
+                        nameA = a['im:name']['label'].toLowerCase();
+                        nameB = b['im:name']['label'].toLowerCase();
+                    break;
+                    case ORDER_BY_GEN:
+                        nameA = a.category.attributes.label.toLowerCase();
+                        nameB = b.category.attributes.label.toLowerCase();
+                    break;
+                    case ORDER_BY_ART:
+                        nameA = a['im:artist']['label'].toLowerCase();
+                        nameB = b['im:artist']['label'].toLowerCase();
+                    break;
+                }
+                
                 if (nameA < nameB)
                     return -1;
                 if (nameA > nameB)
@@ -83,10 +132,24 @@ export class MusicComponent implements OnInit {
         this.albums = [...this.albums];
     }
 
-    private _ztoa() {
+    private _ztoa(orderBy) {
         this.albums.sort(
             (a, b) => {
-                var nameA=a['im:name']['label'].toLowerCase(), nameB=b['im:name']['label'].toLowerCase();
+                var nameA = null, nameB = null;
+                switch(orderBy) {
+                    case ORDER_BY_NAME:
+                        nameA = a['im:name']['label'].toLowerCase();
+                        nameB = b['im:name']['label'].toLowerCase();
+                    break;
+                    case ORDER_BY_GEN:
+                        nameA = a.category.attributes.label.toLowerCase();
+                        nameB = b.category.attributes.label.toLowerCase();
+                    break;
+                    case ORDER_BY_ART:
+                        nameA = a['im:artist']['label'].toLowerCase();
+                        nameB = b['im:artist']['label'].toLowerCase();
+                    break;
+                }
                 if (nameA > nameB)
                     return -1;
                 if (nameA < nameB)

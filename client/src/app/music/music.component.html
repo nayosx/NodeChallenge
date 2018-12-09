@@ -26,7 +26,7 @@
 
 
 
-
+<!--
 <div class="container-fluid bg-black">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8 pt-3 pb-3">
@@ -68,6 +68,7 @@
         </div>
     </div>
 </div>
+-->
 
 
 
@@ -75,10 +76,31 @@
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-12">
-            <div class="form-group">
-                <label for="">Ordenar por: </label>
+        <div class="col-4">
+            <div class="">
+                <label for="">Ordenar por titulo: </label>
                 <select (change)="orderByNameOnChange($event)" [value]="0" class="form-control" >
+                    <option value="0">Por defecto</option>
+                    <option value="1">A-Z</option>
+                    <option value="2">Z-A</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="">
+                <label for="">Ordenar por genero: </label>
+                <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
+                    <option value="0">Por defecto</option>
+                    <option value="1">A-Z</option>
+                    <option value="2">Z-A</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="">
+                <label for="">Ordenar por artista: </label>
+                <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
                     <option value="0">Por defecto</option>
                     <option value="1">A-Z</option>
                     <option value="2">Z-A</option>
