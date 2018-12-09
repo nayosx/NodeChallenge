@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { environment } from '../environments/environment'
-
+import { environment } from '../environments/environment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,12 +17,12 @@ import { environment } from '../environments/environment'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    // FormsModule,
+    NgbModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: environment.TOASTER_TIMEOUT,
-      preventDuplicates: environment.PREVENT_DUPLICATES
-    }),
-
-
+      preventDuplicates: environment.PREVENT_DUPLICATES,
+    })
   ],
   providers: [
     // LoginService

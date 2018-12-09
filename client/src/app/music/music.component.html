@@ -1,17 +1,66 @@
-<div class="container">
+<div class="container-fluid bg-black">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 pt-3 pb-3">
+            <form class="card card-sm">
+                <div class="card-body row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fa fa-search h4 text-body"></i>
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-borderless" type="search" placeholder="Busca tu cancion favorita"  autofocus/>
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn btn-primary" type="button">Buscar</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
     <div class="row">
-        <ng-container *ngFor="let item of data">
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
-                <p>
-                    <img class="img img-responsive" src="{{item['im:image'][2]['label']}}"/>
+        <!--<ng-container *ngFor="let album of albums | paginate: { itemsPerPage: 8, currentPage: p }">-->
+        <ng-container *ngFor="let album of albums | paginate: { itemsPerPage: 8, currentPage: p }">
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-5 pb-3">
+                <p class="text-center">
+                    <img class="img img-responsive img-rounded" src="{{album['im:image'][2]['label']}}"/>
+                </p>
+                <p class="text-truncate">
+                    <strong>Canción: </strong> {{album['im:name']['label']}}
                 </p>
                 <p>
-                    <strong>Canción: </strong> {{item['im:name']['label']}}
+                    <strong>Artista: </strong> {{album['im:artist']['label']}}
                 </p>
                 <p>
-                    <strong>Artista: </strong> {{item['im:artist']['label']}}
+                    <button class="btn btn-sm btn-secondary btn-block" (click)="seeMore(item)">Ver mas detalles</button>
                 </p>
             </div>
         </ng-container>
     </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <pagination-controls 
+                (pageChange)="p = $event" 
+                class="albums-pagination"
+                previousLabel="Anterior"
+                nextLabel="Siguiente">
+            </pagination-controls>
+        </div>
+    </div>
 </div>
+
+
+<ng-template #modal let-c="close" let-d="dismiss"> 
+    <div class="modal-header">
+        <h4 class="modal-title">Editar configuraci&oacute;n</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h1>Hola mundo modal</h1>
+    </div>
+</ng-template>
