@@ -9,6 +9,12 @@ export class AlbumFilterPipe implements PipeTransform {
             return albums;
         }
 
-        return albums.filter(album => album['im:name'].label.toLowerCase().indexOf(searchAlbum.toLowerCase()) !== -1);
+        return albums.filter(
+            album => {
+                return album['im:name'].label.toLowerCase().indexOf(searchAlbum.toLowerCase()) !== -1 ||
+                album['im:artist'].label.toLowerCase().indexOf(searchAlbum.toLowerCase()) !== -1  ||
+                album.category.attributes.label.toLowerCase().indexOf(searchAlbum.toLowerCase()) !== -1
+            }
+        );
     }
 }

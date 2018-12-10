@@ -1,3 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid bg-black">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8 pt-3 pb-3">
@@ -10,7 +17,7 @@
                         <input 
                             class="form-control form-control-borderless" 
                             type="search" 
-                            placeholder="Busca tu cancion favorita"
+                            placeholder="Busca por genero, nombre o artista"
                             [(ngModel)]="searchAlbum"
                             autofocus
                         />
@@ -24,63 +31,13 @@
     </div>
 </div>
 
-
-
-<!--
-<div class="container-fluid bg-black">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8 pt-3 pb-3">
-            <div class="card card-sm">
-                <div class="card-body row no-gutters align-items-center">
-                    <div class="col-auto">
-                        <i class="fa fa-search h4 text-body"></i>
-                    </div>
-                    <div class="col">
-                        <input 
-                            class="form-control form-control-borderless" 
-                            type="search" 
-                            placeholder="Busca tu cancion favorita"
-                            [(ngModel)]="searchAlbum"
-                            autofocus
-                        />
-                    </div>
-                    <div class="col-auto">
-                        
-
-                        <div class="btn-group mr-3">
-                            <button type="button" class="btn btn-primary">Split me</button>
-                            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                                <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
-                                <div class="dropdown-menu" ngbDropdownMenu>
-                                <button class="dropdown-item">One</button>
-                                <button class="dropdown-item">Two</button>
-                                <button class="dropdown-item">Four!</button>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
-
-
-
-
-
 <div class="container mt-3">
     <div class="row">
         <div class="col-4">
             <div class="form-group row">
                 <label for="" class="col-sm-6 col-form-label">Ordenar por titulo: </label>
                 <div class="col-sm-6">
-                    <select (change)="orderByNameOnChange($event)" [value]="0" class="form-control" >
+                    <select (change)="orderAlbums($event, 0)" [value]="0" class="form-control" >
                         <option value="0">Por defecto</option>
                         <option value="1">A-Z</option>
                         <option value="2">Z-A</option>
@@ -93,7 +50,7 @@
             <div class="form-group row">
                 <label for="" class="col-sm-6 col-form-label">Ordenar por genero: </label>
                 <div class="col-sm-6">
-                    <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
+                    <select (change)="orderAlbums($event, 1)" [value]="0" class="form-control" >
                         <option value="0">Por defecto</option>
                         <option value="1">A-Z</option>
                         <option value="2">Z-A</option>
@@ -105,7 +62,7 @@
             <div class="form-group row">
                 <label for="" class="col-sm-6 col-form-label">Ordenar por artista: </label>
                 <div class="col-sm-6">
-                    <select (change)="orderByGenOnChange($event)" [value]="0" class="form-control" >
+                    <select (change)="orderAlbums($event, 2)" [value]="0" class="form-control" >
                         <option value="0">Por defecto</option>
                         <option value="1">A-Z</option>
                         <option value="2">Z-A</option>
@@ -117,7 +74,6 @@
 </div>
 <div class="container mt-5">
     <div class="row">
-        <!--<ng-container *ngFor="let album of albums | albumsFilter:searchAlbum:searchByNameAlbumGenderArtis | albumFilter: searchAlbum | paginate: { itemsPerPage: 8, currentPage: p }">-->
         <ng-container *ngFor="let album of albums | albumFilter: searchAlbum | paginate: { itemsPerPage: 8, currentPage: p }">
             <div class="col-sm-6 col-md-4 col-lg-3 mb-3 pb-3">
                 <div class="album-container text-center mb-2">
